@@ -99,7 +99,7 @@ class DataMatrixApp:
         ttk.Label(
             frame,
             text="Text to Encode",
-            font=("Segoe UI", 12, "bold"),
+            font=("Segoe UI", 15, "bold"),
         ).pack(anchor="w")
 
         # Text input
@@ -108,16 +108,23 @@ class DataMatrixApp:
             height=5,
             wrap="word",
             font=("Segoe UI", 14),
+            bg="#2b2b2b",
+            fg="#f0f0f0",
+            insertbackground="#f0f0f0",
+            selectbackground="#505050",
+            selectforeground="#ffffff",
+            relief="flat",
+            borderwidth=0,
         )
         self.text_input.pack(fill="x", pady=(5, 10))
 
         self.text_input.bind("<KeyRelease>", self.update_preview)
 
-         # Buttons
+        # Buttons
         button_style = ttk.Style()
         button_style.configure(
             "Large.TButton",
-            font=("Segoe UI", 12),
+            font=("Segoe UI", 15),
             padding=6,
         )
 
@@ -142,7 +149,7 @@ class DataMatrixApp:
         ttk.Label(
             frame,
             text="Preview",
-            font=("Segoe UI", 12, "bold"),
+            font=("Segoe UI", 15, "bold"),
         ).pack(anchor="w", pady=(10, 5))
 
         # Preview box
@@ -256,7 +263,6 @@ def main():
         "Large.TButton",
         background=[("active", "#3a3a3a")],
     )
-
 
     # Use modern Windows theme if available
     try:
