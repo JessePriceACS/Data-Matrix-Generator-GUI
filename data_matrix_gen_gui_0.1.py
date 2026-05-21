@@ -10,7 +10,7 @@ from pathlib import Path
 import tkinter as tk
 from tkinter import ttk, messagebox
 
-from PIL import Image, ImageTk, ImageDraw, ImageFont
+from PIL import Image, ImageTk, ImageDraw, ImageFont, ImageOps
 import zxingcpp
 
 
@@ -222,6 +222,13 @@ class DataMatrixApp:
         barcode_raw = zxingcpp.create_barcode(data, zxingcpp.BarcodeFormat.DataMatrix, force_square=True)
         barcode_img = Image.fromarray(barcode_raw.to_image(scale=5, add_quiet_zones=False)).convert("L")
         
+        # Invert the barcode colors (black becomes white, white becomes black)
+        barcode_img = ImageOps.invert(barcode_img)
+        
+        # Add 0.5mm black border
+        border_px = int(round((0.5 / 25.4) * dpi))
+        barcode_img = ImageOps.expand(barcode_img, border=border_px, fill=0)
+
         # Resize barcode to fit height (with padding)
         padding = int(height * 0.15)
         available_h = height - (2 * padding)
@@ -299,7 +306,8 @@ class DataMatrixApp:
             return
 
         try:
-            image = generate_datamatrix_image(data)
+            # Save the composite image currently shown in the preview
+            image = self.current_image if self.current_image else self.create_composite_image(data)
 
             filename = safe_filename(data) + ".png"
             output_path = OUTPUT_DIR / filename
