@@ -10,7 +10,7 @@ from pathlib import Path
 import tkinter as tk
 from tkinter import ttk, messagebox
 
-from PIL import Image, ImageTk
+from PIL import Image, ImageTk, ImageDraw, ImageFont
 import zxingcpp
 
 
@@ -21,6 +21,12 @@ import zxingcpp
 SCALE = 10
 MARGIN = 10
 OUTPUT_DIR = Path("Output")
+
+TAG_FORMATS = {
+    "1.5\" x 0.5\" (300 DPI)": {"width_in": 1.5, "height_in": 0.5, "dpi": 300},
+    "2.0\" x 1.0\" (300 DPI)": {"width_in": 2.0, "height_in": 1.0, "dpi": 300},
+    "3.0\" x 1.0\" (300 DPI)": {"width_in": 3.0, "height_in": 1.0, "dpi": 300},
+}
 
 
 # -----------------------------
@@ -121,6 +127,20 @@ class DataMatrixApp:
             entry.bind("<KeyRelease>", self.update_preview)
             self.fields[label_text] = entry
 
+        # Format Selection Dropdown
+        ttk.Label(frame, text="Tag Format", font=("Segoe UI", 14, "bold")).pack(anchor="w", pady=(10, 0))
+        self.format_var = tk.StringVar()
+        self.format_combo = ttk.Combobox(
+            frame,
+            textvariable=self.format_var,
+            values=list(TAG_FORMATS.keys()),
+            state="readonly",
+            font=("Segoe UI", 14)
+        )
+        self.format_combo.pack(fill="x", pady=(5, 15))
+        self.format_combo.current(0)
+        self.format_combo.bind("<<ComboboxSelected>>", self.update_preview)
+
         # Buttons
         button_style = ttk.Style()
         button_style.configure(
@@ -147,6 +167,15 @@ class DataMatrixApp:
             font=("Segoe UI", 15, "bold"),
         ).pack(anchor="w", pady=(10, 5))
 
+        # Encoded string preview
+        self.encoded_text_label = ttk.Label(
+            frame,
+            font=("Consolas", 16),
+            foreground="#aaaaaa",
+            wraplength=800,
+        )
+        self.encoded_text_label.pack(anchor="w", pady=(0, 10))
+
         # Preview box
         self.preview_label = ttk.Label(frame)
         self.preview_label.pack(expand=True)
@@ -155,27 +184,96 @@ class DataMatrixApp:
         self.update_preview()
 
     def get_text(self) -> str:
+        parts = []
         mfr = self.fields["MFR"].get().strip()
         ser = self.fields["SER"].get().strip()
         pnr = self.fields["PNR"].get().strip()
         rev = self.fields["REV"].get().strip()
 
-        # Return empty if all fields are empty to clear the preview
-        if not (mfr or ser or pnr or rev):
+        if mfr:
+            parts.append(f"MFR {mfr}")
+        if ser:
+            parts.append(f"SER {ser}")
+        if pnr:
+            parts.append(f"PNR {pnr}")
+        if rev:
+            parts.append(f"REV {rev}")
+
+        if not parts:
             return ""
 
-        return f"MFR {mfr} SER {ser} PNR {pnr} REV {rev}"
+        return " ".join(parts)
+
+    def create_composite_image(self, data: str) -> Image.Image:
+        """Creates a composite image with the barcode and labeled text."""
+        fmt_name = self.format_var.get()
+        fmt = TAG_FORMATS[fmt_name]
+        
+        dpi = fmt["dpi"]
+        width = int(fmt["width_in"] * dpi)
+        height = int(fmt["height_in"] * dpi)
+        
+        # Create a white background
+        base = Image.new("L", (width, height), color=255)
+        draw = ImageDraw.Draw(base)
+        
+        # Generate the barcode part
+        # We use a smaller internal scale so it fits nicely in the composite
+        barcode_raw = zxingcpp.create_barcode(data, zxingcpp.BarcodeFormat.DataMatrix, force_square=True)
+        barcode_img = Image.fromarray(barcode_raw.to_image(scale=5, add_quiet_zones=False)).convert("L")
+        
+        # Resize barcode to fit height (with padding)
+        padding = int(height * 0.15)
+        available_h = height - (2 * padding)
+        if barcode_img.height > available_h:
+            aspect = barcode_img.width / barcode_img.height
+            barcode_img = barcode_img.resize((int(available_h * aspect), available_h), Image.LANCZOS)
+            
+        # Paste barcode on the left
+        base.paste(barcode_img, (padding, (height - barcode_img.height) // 2))
+        
+        # Text Layout
+        try:
+            # Common Windows font. Fallback to default if not found.
+            font_bold = ImageFont.truetype("arialbd.ttf", size=int(height * 0.18))
+            font_reg = ImageFont.truetype("arial.ttf", size=int(height * 0.18))
+        except:
+            font_bold = font_reg = ImageFont.load_default()
+            
+        text_x = barcode_img.width + (padding * 2)
+        
+        # Define the fields to draw
+        rows = [
+            ("MFR:", self.fields["MFR"].get().strip()),
+            ("PNR:", self.fields["PNR"].get().strip()),
+            ("SER:", self.fields["SER"].get().strip()),
+            ("REV:", self.fields["REV"].get().strip()),
+        ]
+        
+        # Draw rows (two columns if height is small, or stacked)
+        curr_y = (height - (len(rows) * int(height * 0.22))) // 2
+        for label, val in rows:
+            if not val: val = "-"
+            draw.text((text_x, curr_y), label, fill=0, font=font_bold)
+            # Offset value slightly from the label
+            val_x = text_x + int(dpi * 0.4) 
+            draw.text((val_x, curr_y), val, fill=0, font=font_reg)
+            curr_y += int(height * 0.22)
+            
+        return base
 
     def update_preview(self, event=None):
         data = self.get_text()
 
         if not data:
             self.preview_label.configure(image="")
+            self.encoded_text_label.configure(text="")
             self.current_image = None
             return
 
         try:
-            image = generate_datamatrix_image(data)
+            self.encoded_text_label.configure(text=data)
+            image = self.create_composite_image(data)
 
             # Resize preview if too large
             preview = image.copy()
@@ -271,6 +369,17 @@ def main():
         background=[("active", "#3a3a3a")],
     )
 
+    # Dropdown (Combobox) styling
+    style.configure(
+        "TCombobox",
+        fieldbackground=DARK_PANEL,
+        background=DARK_PANEL,
+        foreground=DARK_TEXT,
+        arrowcolor=DARK_TEXT,
+    )
+    # Ensure the readonly state stays dark
+    style.map("TCombobox", fieldbackground=[("readonly", DARK_PANEL)], foreground=[("readonly", DARK_TEXT)])
+
     # Use modern Windows theme if available
     try:
         from ctypes import windll
@@ -278,6 +387,12 @@ def main():
         windll.shcore.SetProcessDpiAwareness(1)
     except Exception:
         pass
+
+    # Set the font for the dropdown listbox items specifically
+    root.option_add('*TCombobox*Listbox.font', ("Segoe UI", 14))
+    root.option_add('*TCombobox*Listbox.background', DARK_PANEL)
+    root.option_add('*TCombobox*Listbox.foreground', DARK_TEXT)
+    root.option_add('*TCombobox*Listbox.selectBackground', "#505050")
 
     app = DataMatrixApp(root)
 
