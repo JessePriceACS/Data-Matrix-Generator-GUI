@@ -32,12 +32,14 @@ def safe_filename(text: str) -> str:
     """Convert text into a Windows-safe filename."""
 
     cleaned = re.sub(r'[\\/:*?"<>|]', '_', text)
-    cleaned = cleaned.rstrip(" .")
+    # Remove leading/trailing spaces and dots which are problematic on Windows
+    cleaned = cleaned.strip(" .")
 
     if not cleaned:
-        cleaned = "data_matrix"
+        return "data_matrix"
 
-    return cleaned
+    # Truncate to prevent OS path length issues
+    return cleaned[:128]
 
 
 
@@ -80,13 +82,14 @@ def generate_datamatrix_image(data: str) -> Image.Image:
 class DataMatrixApp:
     def __init__(self, root: tk.Tk):
         self.root = root
-        self.root.title("Data Matrix Generator")
-        self.root.geometry("700x700")
+        self.root.title("Data Matrix Generator") # Set the window title
+        self.root.geometry("850x850") # Widen the default window size
 
         OUTPUT_DIR.mkdir(exist_ok=True)
 
         self.current_image = None
         self.preview_photo = None
+        self.fields: dict[str, tk.Entry] = {}
 
         self.build_ui()
 
@@ -95,30 +98,28 @@ class DataMatrixApp:
         frame = ttk.Frame(self.root, padding=15)
         frame.pack(fill="both", expand=True)
 
-        # Label
-        ttk.Label(
-            frame,
-            text="Text to Encode",
-            font=("Segoe UI", 15, "bold"),
-        ).pack(anchor="w")
+        # Input Fields
+        for label_text in ["MFR", "SER", "PNR", "REV"]:
+            ttk.Label(frame, text=label_text, font=("Segoe UI", 12, "bold")).pack(anchor="w")
+            
+            entry = tk.Entry(
+                frame,
+                font=("Segoe UI", 14),
+                bg="#2b2b2b",
+                fg="#f0f0f0",
+                insertbackground="#f0f0f0",
+                selectbackground="#505050",
+                selectforeground="#ffffff",
+                relief="flat",
+                borderwidth=0,
+            )
 
-        # Text input
-        self.text_input = tk.Text(
-            frame,
-            height=5,
-            wrap="word",
-            font=("Segoe UI", 14),
-            bg="#2b2b2b",
-            fg="#f0f0f0",
-            insertbackground="#f0f0f0",
-            selectbackground="#505050",
-            selectforeground="#ffffff",
-            relief="flat",
-            borderwidth=0,
-        )
-        self.text_input.pack(fill="x", pady=(5, 10))
+            if label_text == "MFR":
+                entry.insert(0, "9G8G8")
 
-        self.text_input.bind("<KeyRelease>", self.update_preview)
+            entry.pack(fill="x", pady=(2, 10))
+            entry.bind("<KeyRelease>", self.update_preview)
+            self.fields[label_text] = entry
 
         # Buttons
         button_style = ttk.Style()
@@ -131,13 +132,7 @@ class DataMatrixApp:
         button_frame = ttk.Frame(frame)
         button_frame.pack(fill="x", pady=(0, 10))
 
-        ttk.Button(
-            button_frame,
-            text="Generate Preview",
-            command=self.update_preview,
-            style="Large.TButton",
-        ).pack(side="left", padx=(0, 10))
-
+        # The "Generate Preview" button is redundant as the preview updates on KeyRelease.
         ttk.Button(
             button_frame,
             text="Save PNG",
@@ -156,8 +151,20 @@ class DataMatrixApp:
         self.preview_label = ttk.Label(frame)
         self.preview_label.pack(expand=True)
 
+        # Run initial preview for default values
+        self.update_preview()
+
     def get_text(self) -> str:
-        return self.text_input.get("1.0", "end").strip()
+        mfr = self.fields["MFR"].get().strip()
+        ser = self.fields["SER"].get().strip()
+        pnr = self.fields["PNR"].get().strip()
+        rev = self.fields["REV"].get().strip()
+
+        # Return empty if all fields are empty to clear the preview
+        if not (mfr or ser or pnr or rev):
+            return ""
+
+        return f"MFR {mfr} SER {ser} PNR {pnr} REV {rev}"
 
     def update_preview(self, event=None):
         data = self.get_text()
