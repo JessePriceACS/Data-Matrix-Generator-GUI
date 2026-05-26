@@ -8,10 +8,15 @@ from io import BytesIO
 from pathlib import Path
 
 import tkinter as tk
-from tkinter import ttk, messagebox
+from tkinter import ttk, messagebox, filedialog
 
 from PIL import Image, ImageTk, ImageDraw, ImageFont, ImageOps
 import zxingcpp
+
+try:
+    import svgwrite
+except ImportError:
+    svgwrite = None
 
 
 # -----------------------------
@@ -23,9 +28,11 @@ MARGIN = 10
 OUTPUT_DIR = Path("Output")
 
 TAG_FORMATS = {
-    "1.5\" x 0.5\" (300 DPI)": {"width_in": 1.5, "height_in": 0.5, "dpi": 300},
-    "2.0\" x 1.0\" (300 DPI)": {"width_in": 2.0, "height_in": 1.0, "dpi": 300},
-    "3.0\" x 1.0\" (300 DPI)": {"width_in": 3.0, "height_in": 1.0, "dpi": 300},
+    "Barcode Only": {"width_mm": 25, "height_mm": 25, "dpi": 300},
+    "AL00003 - Turret ASM AA00063": {"width_mm": 103, "height_mm": 35, "dpi": 300},
+    "1.5\" x 0.5\" (300 DPI)": {"width_mm": 38.1, "height_mm": 12.7, "dpi": 300},
+    "2.0\" x 1.0\" (300 DPI)": {"width_mm": 50.8, "height_mm": 25.4, "dpi": 300},
+    "3.0\" x 1.0\" (300 DPI)": {"width_mm": 76.2, "height_mm": 25.4, "dpi": 300},
 }
 
 
@@ -89,7 +96,7 @@ class DataMatrixApp:
     def __init__(self, root: tk.Tk):
         self.root = root
         self.root.title("Data Matrix Generator") # Set the window title
-        self.root.geometry("850x850") # Widen the default window size
+        self.root.geometry("850x1000") # Widen and heighten the default window size
 
         OUTPUT_DIR.mkdir(exist_ok=True)
 
@@ -116,12 +123,10 @@ class DataMatrixApp:
                 insertbackground="#f0f0f0",
                 selectbackground="#505050",
                 selectforeground="#ffffff",
+                readonlybackground="#2b2b2b",
                 relief="flat",
                 borderwidth=0,
             )
-
-            if label_text == "MFR":
-                entry.insert(0, "9G8G8")
 
             entry.pack(fill="x", pady=(2, 10))
             entry.bind("<KeyRelease>", self.update_preview)
@@ -138,8 +143,8 @@ class DataMatrixApp:
             font=("Segoe UI", 14)
         )
         self.format_combo.pack(fill="x", pady=(5, 15))
-        self.format_combo.current(0)
-        self.format_combo.bind("<<ComboboxSelected>>", self.update_preview)
+        self.format_combo.current(0) # Set initial selection
+        self.format_combo.bind("<<ComboboxSelected>>", self._on_format_selected)
 
         # Buttons
         button_style = ttk.Style()
@@ -155,8 +160,15 @@ class DataMatrixApp:
         # The "Generate Preview" button is redundant as the preview updates on KeyRelease.
         ttk.Button(
             button_frame,
-            text="Save PNG",
-            command=self.save_png,
+            text="Save SVG to Output Dir",
+            command=self.save_to_output_dir,
+            style="Large.TButton",
+        ).pack(side="left", padx=(0, 10))
+
+        ttk.Button(
+            button_frame,
+            text="Save SVG to another folder",
+            command=self.save_to_custom_dir,
             style="Large.TButton",
         ).pack(side="left")
 
@@ -181,7 +193,44 @@ class DataMatrixApp:
         self.preview_label.pack(expand=True)
 
         # Run initial preview for default values
+        self._update_field_defaults() # Set defaults based on initial format
         self.update_preview()
+
+    def _on_format_selected(self, event=None):
+        """Handle format selection change."""
+        self._update_field_defaults()
+        self.update_preview()
+
+    def _update_field_defaults(self):
+        """Sets or clears field defaults based on the selected format."""
+        mfr_entry = self.fields["MFR"]
+        pnr_entry = self.fields["PNR"]
+        current_mfr = mfr_entry.get().strip()
+        current_pnr = pnr_entry.get().strip()
+        selected_format = self.format_var.get()
+
+        if selected_format == "AL00003 - Turret ASM AA00063":
+            # MFR: Force 9G8G8 and lock
+            mfr_entry.config(state="normal", fg="#f0f0f0")
+            mfr_entry.delete(0, tk.END)
+            mfr_entry.insert(0, "9G8G8")
+            mfr_entry.config(state="readonly", fg="#aaaaaa")
+
+            # PNR: Force AA00063 and lock
+            pnr_entry.config(state="normal", fg="#f0f0f0")
+            pnr_entry.delete(0, tk.END)
+            pnr_entry.insert(0, "AA00063")
+            pnr_entry.config(state="readonly", fg="#aaaaaa")
+        else:
+            # Reset MFR if it matches the default
+            mfr_entry.config(state="normal", fg="#f0f0f0")
+            if current_mfr == "9G8G8":
+                mfr_entry.delete(0, tk.END)
+            
+            # Reset PNR if it matches the default
+            pnr_entry.config(state="normal", fg="#f0f0f0")
+            if current_pnr == "AA00063":
+                pnr_entry.delete(0, tk.END)
 
     def get_text(self) -> str:
         parts = []
@@ -190,17 +239,18 @@ class DataMatrixApp:
         pnr = self.fields["PNR"].get().strip()
         rev = self.fields["REV"].get().strip()
 
+        if not any([mfr, ser, pnr, rev]):
+            return ""
+
         if mfr:
             parts.append(f"MFR {mfr}")
         if ser:
             parts.append(f"SER {ser}")
         if pnr:
             parts.append(f"PNR {pnr}")
-        if rev:
-            parts.append(f"REV {rev}")
 
-        if not parts:
-            return ""
+        # REV is always included in the string unless the entire form is empty
+        parts.append(f"REV {rev}".strip())
 
         return " ".join(parts)
 
@@ -210,8 +260,8 @@ class DataMatrixApp:
         fmt = TAG_FORMATS[fmt_name]
         
         dpi = fmt["dpi"]
-        width = int(fmt["width_in"] * dpi)
-        height = int(fmt["height_in"] * dpi)
+        width = int((fmt["width_mm"] / 25.4) * dpi)
+        height = int((fmt["height_mm"] / 25.4) * dpi)
         
         # Create a white background
         base = Image.new("L", (width, height), color=255)
@@ -230,42 +280,88 @@ class DataMatrixApp:
         barcode_img = ImageOps.expand(barcode_img, border=border_px, fill=0)
 
         # Resize barcode to fit height (with padding)
-        padding = int(height * 0.15)
+        padding = int((2.5 / 25.4) * dpi)  # Match 2.5mm padding from SVG
         available_h = height - (2 * padding)
-        if barcode_img.height > available_h:
-            aspect = barcode_img.width / barcode_img.height
-            barcode_img = barcode_img.resize((int(available_h * aspect), available_h), Image.LANCZOS)
+        aspect = barcode_img.width / barcode_img.height
+        barcode_img = barcode_img.resize((int(available_h * aspect), available_h), Image.LANCZOS)
             
-        # Paste barcode on the left
-        base.paste(barcode_img, (padding, (height - barcode_img.height) // 2))
-        
-        # Text Layout
-        try:
-            # Common Windows font. Fallback to default if not found.
-            font_bold = ImageFont.truetype("arialbd.ttf", size=int(height * 0.18))
-            font_reg = ImageFont.truetype("arial.ttf", size=int(height * 0.18))
-        except:
-            font_bold = font_reg = ImageFont.load_default()
+        if "AL00003" in fmt_name:
+            # AL00003 Layout: Text on Left, Barcode specifically positioned on Right
+            # Resize barcode to 16mm x 16mm
+            bc_size_px = int((16 / 25.4) * dpi)
+            barcode_img = barcode_img.resize((bc_size_px, bc_size_px), Image.LANCZOS)
+
+            # Position: 83mm right, 4mm down
+            barcode_x = int((83 / 25.4) * dpi)
+            barcode_y = int((4 / 25.4) * dpi)
+            base.paste(barcode_img, (barcode_x, barcode_y))
+
+            # Offsets converted to pixels (x=4mm, y=2.8mm)
+            off_x = int((4 / 25.4) * dpi)
+            off_y = int((2.8 / 25.4) * dpi)
+            f_size = int((24 / 72) * dpi)      # 24pt
+            leading = int((30 / 72) * dpi)     # 30pt
+            tracking_px = int((0.6 / 25.4) * dpi) # 0.6mm tracking
+
+            try:
+                font = ImageFont.truetype("arialbd.ttf", size=f_size)
+            except:
+                font = ImageFont.load_default()
+
+            mfr = self.fields["MFR"].get().strip()
+            ser = self.fields["SER"].get().strip()
+            pnr = self.fields["PNR"].get().strip()
+            rev = self.fields["REV"].get().strip()
+
+            lines = [
+                f"MFR {mfr}",
+                f"SER {ser}",
+                f"PNR {pnr} REV {rev}"
+            ]
             
-        text_x = barcode_img.width + (padding * 2)
+            for i, line in enumerate(lines):
+                curr_x = off_x
+                y_pos = off_y + (i * leading)
+                for char in line:
+                    draw.text((curr_x, y_pos), char, fill=0, font=font)
+                    char_w = draw.textlength(char, font=font)
+                    curr_x += char_w + tracking_px
+
+            # Add 0.25mm tag perimeter border with 2mm corner radius
+            tag_border_px = max(1, int((0.25 / 25.4) * dpi))
+            radius_px = int((2.0 / 25.4) * dpi)
+            draw.rounded_rectangle([0, 0, width - 1, height - 1], radius=radius_px, outline=0, width=tag_border_px)
+        elif "Barcode Only" in fmt_name:
+            # Centered barcode, no text
+            base.paste(barcode_img, ((width - barcode_img.width) // 2, (height - barcode_img.height) // 2))
+            return base
+        else:
+            # Generic Layout: Barcode on Left, Text on Right
+            base.paste(barcode_img, (padding, (height - barcode_img.height) // 2))
         
-        # Define the fields to draw
-        rows = [
-            ("MFR:", self.fields["MFR"].get().strip()),
-            ("PNR:", self.fields["PNR"].get().strip()),
-            ("SER:", self.fields["SER"].get().strip()),
-            ("REV:", self.fields["REV"].get().strip()),
-        ]
-        
-        # Draw rows (two columns if height is small, or stacked)
-        curr_y = (height - (len(rows) * int(height * 0.22))) // 2
-        for label, val in rows:
-            if not val: val = "-"
-            draw.text((text_x, curr_y), label, fill=0, font=font_bold)
-            # Offset value slightly from the label
-            val_x = text_x + int(dpi * 0.4) 
-            draw.text((val_x, curr_y), val, fill=0, font=font_reg)
-            curr_y += int(height * 0.22)
+            try:
+                font_size = int(height * 0.15)
+                font_bold = ImageFont.truetype("arialbd.ttf", size=font_size)
+                font_reg = ImageFont.truetype("arial.ttf", size=font_size)
+            except:
+                font_bold = font_reg = ImageFont.load_default()
+                
+            text_x = barcode_img.width + (padding * 3)
+            rows = [
+                ("MFR:", self.fields["MFR"].get().strip()),
+                ("PNR:", self.fields["PNR"].get().strip()),
+                ("SER:", self.fields["SER"].get().strip()),
+                ("REV:", self.fields["REV"].get().strip()),
+            ]
+            
+            line_height = int(font_size * 1.4)
+            curr_y = (height - (len(rows) * line_height)) // 2
+            for label, val in rows:
+                if not val: val = "-"
+                draw.text((text_x, curr_y), label, fill=0, font=font_bold)
+                val_x = text_x + int(font_size * 2.5) 
+                draw.text((val_x, curr_y), val, fill=0, font=font_reg)
+                curr_y += line_height
             
         return base
 
@@ -284,7 +380,7 @@ class DataMatrixApp:
 
             # Resize preview if too large
             preview = image.copy()
-            preview.thumbnail((500, 500))
+            preview.thumbnail((625, 625))
 
             self.preview_photo = ImageTk.PhotoImage(preview)
 
@@ -295,29 +391,146 @@ class DataMatrixApp:
         except Exception as exc:
             messagebox.showerror("Error", str(exc))
 
-    def save_png(self):
+    def save_to_output_dir(self):
+        """Save SVG to the default Output directory."""
+        self._perform_save(use_dialog=False)
+
+    def save_to_custom_dir(self):
+        """Open a dialog to save SVG to a custom location."""
+        self._perform_save(use_dialog=True)
+
+    def _perform_save(self, use_dialog: bool):
+        """Core saving logic handling both automatic and manual paths."""
         data = self.get_text()
 
         if not data:
-            messagebox.showwarning(
-                "No Text",
-                "Please enter text to encode.",
-            )
+            messagebox.showwarning("No Text", "Please enter text to encode.")
+            return
+
+        if not svgwrite:
+            messagebox.showerror("Missing Library", "Please install svgwrite: pip install svgwrite")
             return
 
         try:
-            # Save the composite image currently shown in the preview
-            image = self.current_image if self.current_image else self.create_composite_image(data)
+            if use_dialog:
+                file_path = filedialog.asksaveasfilename(
+                    defaultextension=".svg",
+                    filetypes=[("SVG Vector", "*.svg")],
+                    initialfile=safe_filename(data) + ".svg"
+                )
+                if not file_path:
+                    return
+            else:
+                # Automatically define the path in the Output folder
+                filename = safe_filename(data) + ".svg"
+                file_path = str(OUTPUT_DIR / filename)
+            
+            self.save_svg(data, file_path)
+        except Exception as exc:
+            messagebox.showerror("Error", str(exc))
 
-            filename = safe_filename(data) + ".png"
-            output_path = OUTPUT_DIR / filename
+    def save_svg(self, data: str, file_path: str):
+        """Generates a true vector SVG of the tag."""
+        try:
+            fmt_name = self.format_var.get()
+            fmt = TAG_FORMATS[fmt_name]
+            width_mm = fmt["width_mm"]
+            height_mm = fmt["height_mm"]
 
-            image.save(output_path)
+            # Initialize drawing in mm
+            dwg = svgwrite.Drawing(file_path, size=(f"{width_mm}mm", f"{height_mm}mm"), profile='full')
+            # Set the coordinate system viewbox: 1 unit = 1mm
+            dwg.viewbox(0, 0, width_mm, height_mm)
+            
+            # Background (White)
+            dwg.add(dwg.rect(insert=(0, 0), size=('100%', '100%'), fill='white'))
+            
+            if "AL00003" in fmt_name:
+                # Add 0.25mm tag perimeter border with 2mm corner radius
+                # Offset by 0.125mm (half stroke) to keep the line inside the tag edge
+                dwg.add(dwg.rect(insert=(0.125, 0.125), 
+                                 size=(width_mm - 0.25, height_mm - 0.25), 
+                                 rx=2, ry=2,
+                                 fill='none', stroke='black', stroke_width=0.25))
+                
+            # Generate Barcode bits
+            barcode_raw = zxingcpp.create_barcode(data, zxingcpp.BarcodeFormat.DataMatrix, force_square=True)
+            matrix_img = Image.fromarray(barcode_raw.to_image(scale=1, add_quiet_zones=False))
+            
+            m_size = matrix_img.width
+            padding = 2.5  # 2.5mm padding
+            
+            if "AL00003" in fmt_name:
+                target_h = 16  # 16mm barcode size
+                barcode_x = 83 # 83mm from left
+                barcode_y = 4  # 4mm from top
+            elif "Barcode Only" in fmt_name:
+                target_h = height_mm * 0.8
+                barcode_x = (width_mm - target_h) / 2
+                barcode_y = (height_mm - target_h) / 2
+            else:
+                target_h = height_mm * 0.7
+                barcode_x = padding
+                barcode_y = (height_mm - target_h) / 2
 
-            messagebox.showinfo(
-                "Saved",
-                f"Saved PNG:\n{output_path}",
-            )
+            module_scale = target_h / m_size
+
+            # Border (0.5mm)
+            border_mm = 0.5
+            
+            # Draw the black background box for the inverted barcode
+            dwg.add(dwg.rect(
+                insert=(barcode_x - border_mm, barcode_y - border_mm),
+                size=(target_h + (border_mm * 2), target_h + (border_mm * 2)),
+                fill='black'
+            ))
+
+            # Draw the white modules (inverted)
+            for y in range(m_size):
+                for x in range(m_size):
+                    if matrix_img.getpixel((x, y)) == 0:
+                        dwg.add(dwg.rect(
+                            insert=(barcode_x + (x * module_scale), barcode_y + (y * module_scale)),
+                            size=(module_scale, module_scale), # Squares are now perfectly adjacent
+                            fill='white'
+                        ))
+
+            if "AL00003" in fmt_name:
+                # Custom AL00003 Text Layout (All Left)
+                tx, ty = 4, 2.8 # x=4mm, y=2.8mm (moved up by 1.2mm)
+                fs_mm = (24 / 72) * 25.4 # 24pt in mm
+                ld_mm = (30 / 72) * 25.4 # 30pt in mm
+                tracking_mm = 0.6 # 0.6mm tracking
+
+                mfr = self.fields["MFR"].get().strip()
+                ser = self.fields["SER"].get().strip()
+                pnr = self.fields["PNR"].get().strip()
+                rev = self.fields["REV"].get().strip()
+
+                dwg.add(dwg.text(f"MFR {mfr}", insert=(tx, ty), fill='black', font_family="Arial", font_weight="bold", font_size=fs_mm, dominant_baseline="hanging", letter_spacing=tracking_mm))
+                dwg.add(dwg.text(f"SER {ser}", insert=(tx, ty + ld_mm), fill='black', font_family="Arial", font_weight="bold", font_size=fs_mm, dominant_baseline="hanging", letter_spacing=tracking_mm))
+                dwg.add(dwg.text(f"PNR {pnr} REV {rev}", insert=(tx, ty + (2 * ld_mm)), fill='black', font_family="Arial", font_weight="bold", font_size=fs_mm, dominant_baseline="hanging", letter_spacing=tracking_mm))
+            elif "Barcode Only" in fmt_name:
+                pass
+            else:
+                # Generic Text Layout (Next to barcode)
+                text_x = barcode_x + target_h + (padding * 2)
+                font_size = height_mm * 0.15
+                rows = [
+                    ("MFR:", self.fields["MFR"].get().strip()),
+                    ("PNR:", self.fields["PNR"].get().strip()),
+                    ("SER:", self.fields["SER"].get().strip()),
+                    ("REV:", self.fields["REV"].get().strip()),
+                ]
+                curr_y = barcode_y + font_size
+                for label, val in rows:
+                    if not val: val = "-"
+                    dwg.add(dwg.text(label, insert=(text_x, curr_y), fill='black', font_family="Arial", font_weight="bold", font_size=font_size))
+                    dwg.add(dwg.text(val, insert=(text_x + (font_size * 2.5), curr_y), fill='black', font_family="Arial", font_size=font_size))
+                    curr_y += font_size * 1.3
+
+            dwg.save()
+            messagebox.showinfo("Saved", f"Vector SVG saved successfully:\n{file_path}")
 
         except Exception as exc:
             messagebox.showerror("Error", str(exc))
@@ -388,10 +601,13 @@ def main():
     # Ensure the readonly state stays dark
     style.map("TCombobox", fieldbackground=[("readonly", DARK_PANEL)], foreground=[("readonly", DARK_TEXT)])
 
+    # -----------------------------
+    # Platform Specifics & Start
+    # -----------------------------
+
     # Use modern Windows theme if available
     try:
         from ctypes import windll
-
         windll.shcore.SetProcessDpiAwareness(1)
     except Exception:
         pass
@@ -403,7 +619,6 @@ def main():
     root.option_add('*TCombobox*Listbox.selectBackground', "#505050")
 
     app = DataMatrixApp(root)
-
     root.mainloop()
 
 
