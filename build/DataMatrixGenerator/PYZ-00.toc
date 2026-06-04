@@ -1,0 +1,1110 @@
+('C:\\Users\\Jesse Price\\Documents\\Laser Engrave\\Machine Tags\\Data Matrix '
+ 'Python\\Data Matrix Generator GUI\\build\\DataMatrixGenerator\\PYZ-00.pyz',
+ [('PIL',
+   'C:\\Users\\Jesse '
+   'Price\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\site-packages\\PIL\\__init__.py',
+   'PYMODULE'),
+  ('PIL.AvifImagePlugin',
+   'C:\\Users\\Jesse '
+   'Price\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\site-packages\\PIL\\AvifImagePlugin.py',
+   'PYMODULE'),
+  ('PIL.BlpImagePlugin',
+   'C:\\Users\\Jesse '
+   'Price\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\site-packages\\PIL\\BlpImagePlugin.py',
+   'PYMODULE'),
+  ('PIL.BmpImagePlugin',
+   'C:\\Users\\Jesse '
+   'Price\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\site-packages\\PIL\\BmpImagePlugin.py',
+   'PYMODULE'),
+  ('PIL.BufrStubImagePlugin',
+   'C:\\Users\\Jesse '
+   'Price\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\site-packages\\PIL\\BufrStubImagePlugin.py',
+   'PYMODULE'),
+  ('PIL.CurImagePlugin',
+   'C:\\Users\\Jesse '
+   'Price\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\site-packages\\PIL\\CurImagePlugin.py',
+   'PYMODULE'),
+  ('PIL.DcxImagePlugin',
+   'C:\\Users\\Jesse '
+   'Price\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\site-packages\\PIL\\DcxImagePlugin.py',
+   'PYMODULE'),
+  ('PIL.DdsImagePlugin',
+   'C:\\Users\\Jesse '
+   'Price\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\site-packages\\PIL\\DdsImagePlugin.py',
+   'PYMODULE'),
+  ('PIL.EpsImagePlugin',
+   'C:\\Users\\Jesse '
+   'Price\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\site-packages\\PIL\\EpsImagePlugin.py',
+   'PYMODULE'),
+  ('PIL.ExifTags',
+   'C:\\Users\\Jesse '
+   'Price\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\site-packages\\PIL\\ExifTags.py',
+   'PYMODULE'),
+  ('PIL.FitsImagePlugin',
+   'C:\\Users\\Jesse '
+   'Price\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\site-packages\\PIL\\FitsImagePlugin.py',
+   'PYMODULE'),
+  ('PIL.FliImagePlugin',
+   'C:\\Users\\Jesse '
+   'Price\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\site-packages\\PIL\\FliImagePlugin.py',
+   'PYMODULE'),
+  ('PIL.FpxImagePlugin',
+   'C:\\Users\\Jesse '
+   'Price\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\site-packages\\PIL\\FpxImagePlugin.py',
+   'PYMODULE'),
+  ('PIL.FtexImagePlugin',
+   'C:\\Users\\Jesse '
+   'Price\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\site-packages\\PIL\\FtexImagePlugin.py',
+   'PYMODULE'),
+  ('PIL.GbrImagePlugin',
+   'C:\\Users\\Jesse '
+   'Price\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\site-packages\\PIL\\GbrImagePlugin.py',
+   'PYMODULE'),
+  ('PIL.GifImagePlugin',
+   'C:\\Users\\Jesse '
+   'Price\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\site-packages\\PIL\\GifImagePlugin.py',
+   'PYMODULE'),
+  ('PIL.GimpGradientFile',
+   'C:\\Users\\Jesse '
+   'Price\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\site-packages\\PIL\\GimpGradientFile.py',
+   'PYMODULE'),
+  ('PIL.GimpPaletteFile',
+   'C:\\Users\\Jesse '
+   'Price\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\site-packages\\PIL\\GimpPaletteFile.py',
+   'PYMODULE'),
+  ('PIL.GribStubImagePlugin',
+   'C:\\Users\\Jesse '
+   'Price\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\site-packages\\PIL\\GribStubImagePlugin.py',
+   'PYMODULE'),
+  ('PIL.Hdf5StubImagePlugin',
+   'C:\\Users\\Jesse '
+   'Price\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\site-packages\\PIL\\Hdf5StubImagePlugin.py',
+   'PYMODULE'),
+  ('PIL.IcnsImagePlugin',
+   'C:\\Users\\Jesse '
+   'Price\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\site-packages\\PIL\\IcnsImagePlugin.py',
+   'PYMODULE'),
+  ('PIL.IcoImagePlugin',
+   'C:\\Users\\Jesse '
+   'Price\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\site-packages\\PIL\\IcoImagePlugin.py',
+   'PYMODULE'),
+  ('PIL.ImImagePlugin',
+   'C:\\Users\\Jesse '
+   'Price\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\site-packages\\PIL\\ImImagePlugin.py',
+   'PYMODULE'),
+  ('PIL.Image',
+   'C:\\Users\\Jesse '
+   'Price\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\site-packages\\PIL\\Image.py',
+   'PYMODULE'),
+  ('PIL.ImageChops',
+   'C:\\Users\\Jesse '
+   'Price\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\site-packages\\PIL\\ImageChops.py',
+   'PYMODULE'),
+  ('PIL.ImageCms',
+   'C:\\Users\\Jesse '
+   'Price\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\site-packages\\PIL\\ImageCms.py',
+   'PYMODULE'),
+  ('PIL.ImageColor',
+   'C:\\Users\\Jesse '
+   'Price\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\site-packages\\PIL\\ImageColor.py',
+   'PYMODULE'),
+  ('PIL.ImageDraw',
+   'C:\\Users\\Jesse '
+   'Price\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\site-packages\\PIL\\ImageDraw.py',
+   'PYMODULE'),
+  ('PIL.ImageDraw2',
+   'C:\\Users\\Jesse '
+   'Price\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\site-packages\\PIL\\ImageDraw2.py',
+   'PYMODULE'),
+  ('PIL.ImageFile',
+   'C:\\Users\\Jesse '
+   'Price\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\site-packages\\PIL\\ImageFile.py',
+   'PYMODULE'),
+  ('PIL.ImageFilter',
+   'C:\\Users\\Jesse '
+   'Price\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\site-packages\\PIL\\ImageFilter.py',
+   'PYMODULE'),
+  ('PIL.ImageFont',
+   'C:\\Users\\Jesse '
+   'Price\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\site-packages\\PIL\\ImageFont.py',
+   'PYMODULE'),
+  ('PIL.ImageMath',
+   'C:\\Users\\Jesse '
+   'Price\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\site-packages\\PIL\\ImageMath.py',
+   'PYMODULE'),
+  ('PIL.ImageMode',
+   'C:\\Users\\Jesse '
+   'Price\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\site-packages\\PIL\\ImageMode.py',
+   'PYMODULE'),
+  ('PIL.ImageOps',
+   'C:\\Users\\Jesse '
+   'Price\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\site-packages\\PIL\\ImageOps.py',
+   'PYMODULE'),
+  ('PIL.ImagePalette',
+   'C:\\Users\\Jesse '
+   'Price\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\site-packages\\PIL\\ImagePalette.py',
+   'PYMODULE'),
+  ('PIL.ImagePath',
+   'C:\\Users\\Jesse '
+   'Price\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\site-packages\\PIL\\ImagePath.py',
+   'PYMODULE'),
+  ('PIL.ImageQt',
+   'C:\\Users\\Jesse '
+   'Price\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\site-packages\\PIL\\ImageQt.py',
+   'PYMODULE'),
+  ('PIL.ImageSequence',
+   'C:\\Users\\Jesse '
+   'Price\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\site-packages\\PIL\\ImageSequence.py',
+   'PYMODULE'),
+  ('PIL.ImageShow',
+   'C:\\Users\\Jesse '
+   'Price\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\site-packages\\PIL\\ImageShow.py',
+   'PYMODULE'),
+  ('PIL.ImageText',
+   'C:\\Users\\Jesse '
+   'Price\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\site-packages\\PIL\\ImageText.py',
+   'PYMODULE'),
+  ('PIL.ImageTk',
+   'C:\\Users\\Jesse '
+   'Price\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\site-packages\\PIL\\ImageTk.py',
+   'PYMODULE'),
+  ('PIL.ImageWin',
+   'C:\\Users\\Jesse '
+   'Price\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\site-packages\\PIL\\ImageWin.py',
+   'PYMODULE'),
+  ('PIL.ImtImagePlugin',
+   'C:\\Users\\Jesse '
+   'Price\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\site-packages\\PIL\\ImtImagePlugin.py',
+   'PYMODULE'),
+  ('PIL.IptcImagePlugin',
+   'C:\\Users\\Jesse '
+   'Price\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\site-packages\\PIL\\IptcImagePlugin.py',
+   'PYMODULE'),
+  ('PIL.Jpeg2KImagePlugin',
+   'C:\\Users\\Jesse '
+   'Price\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\site-packages\\PIL\\Jpeg2KImagePlugin.py',
+   'PYMODULE'),
+  ('PIL.JpegImagePlugin',
+   'C:\\Users\\Jesse '
+   'Price\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\site-packages\\PIL\\JpegImagePlugin.py',
+   'PYMODULE'),
+  ('PIL.JpegPresets',
+   'C:\\Users\\Jesse '
+   'Price\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\site-packages\\PIL\\JpegPresets.py',
+   'PYMODULE'),
+  ('PIL.McIdasImagePlugin',
+   'C:\\Users\\Jesse '
+   'Price\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\site-packages\\PIL\\McIdasImagePlugin.py',
+   'PYMODULE'),
+  ('PIL.MicImagePlugin',
+   'C:\\Users\\Jesse '
+   'Price\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\site-packages\\PIL\\MicImagePlugin.py',
+   'PYMODULE'),
+  ('PIL.MpegImagePlugin',
+   'C:\\Users\\Jesse '
+   'Price\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\site-packages\\PIL\\MpegImagePlugin.py',
+   'PYMODULE'),
+  ('PIL.MpoImagePlugin',
+   'C:\\Users\\Jesse '
+   'Price\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\site-packages\\PIL\\MpoImagePlugin.py',
+   'PYMODULE'),
+  ('PIL.MspImagePlugin',
+   'C:\\Users\\Jesse '
+   'Price\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\site-packages\\PIL\\MspImagePlugin.py',
+   'PYMODULE'),
+  ('PIL.PaletteFile',
+   'C:\\Users\\Jesse '
+   'Price\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\site-packages\\PIL\\PaletteFile.py',
+   'PYMODULE'),
+  ('PIL.PalmImagePlugin',
+   'C:\\Users\\Jesse '
+   'Price\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\site-packages\\PIL\\PalmImagePlugin.py',
+   'PYMODULE'),
+  ('PIL.PcdImagePlugin',
+   'C:\\Users\\Jesse '
+   'Price\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\site-packages\\PIL\\PcdImagePlugin.py',
+   'PYMODULE'),
+  ('PIL.PcxImagePlugin',
+   'C:\\Users\\Jesse '
+   'Price\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\site-packages\\PIL\\PcxImagePlugin.py',
+   'PYMODULE'),
+  ('PIL.PdfImagePlugin',
+   'C:\\Users\\Jesse '
+   'Price\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\site-packages\\PIL\\PdfImagePlugin.py',
+   'PYMODULE'),
+  ('PIL.PdfParser',
+   'C:\\Users\\Jesse '
+   'Price\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\site-packages\\PIL\\PdfParser.py',
+   'PYMODULE'),
+  ('PIL.PixarImagePlugin',
+   'C:\\Users\\Jesse '
+   'Price\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\site-packages\\PIL\\PixarImagePlugin.py',
+   'PYMODULE'),
+  ('PIL.PngImagePlugin',
+   'C:\\Users\\Jesse '
+   'Price\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\site-packages\\PIL\\PngImagePlugin.py',
+   'PYMODULE'),
+  ('PIL.PpmImagePlugin',
+   'C:\\Users\\Jesse '
+   'Price\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\site-packages\\PIL\\PpmImagePlugin.py',
+   'PYMODULE'),
+  ('PIL.PsdImagePlugin',
+   'C:\\Users\\Jesse '
+   'Price\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\site-packages\\PIL\\PsdImagePlugin.py',
+   'PYMODULE'),
+  ('PIL.QoiImagePlugin',
+   'C:\\Users\\Jesse '
+   'Price\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\site-packages\\PIL\\QoiImagePlugin.py',
+   'PYMODULE'),
+  ('PIL.SgiImagePlugin',
+   'C:\\Users\\Jesse '
+   'Price\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\site-packages\\PIL\\SgiImagePlugin.py',
+   'PYMODULE'),
+  ('PIL.SpiderImagePlugin',
+   'C:\\Users\\Jesse '
+   'Price\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\site-packages\\PIL\\SpiderImagePlugin.py',
+   'PYMODULE'),
+  ('PIL.SunImagePlugin',
+   'C:\\Users\\Jesse '
+   'Price\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\site-packages\\PIL\\SunImagePlugin.py',
+   'PYMODULE'),
+  ('PIL.TgaImagePlugin',
+   'C:\\Users\\Jesse '
+   'Price\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\site-packages\\PIL\\TgaImagePlugin.py',
+   'PYMODULE'),
+  ('PIL.TiffImagePlugin',
+   'C:\\Users\\Jesse '
+   'Price\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\site-packages\\PIL\\TiffImagePlugin.py',
+   'PYMODULE'),
+  ('PIL.TiffTags',
+   'C:\\Users\\Jesse '
+   'Price\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\site-packages\\PIL\\TiffTags.py',
+   'PYMODULE'),
+  ('PIL.WebPImagePlugin',
+   'C:\\Users\\Jesse '
+   'Price\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\site-packages\\PIL\\WebPImagePlugin.py',
+   'PYMODULE'),
+  ('PIL.WmfImagePlugin',
+   'C:\\Users\\Jesse '
+   'Price\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\site-packages\\PIL\\WmfImagePlugin.py',
+   'PYMODULE'),
+  ('PIL.XVThumbImagePlugin',
+   'C:\\Users\\Jesse '
+   'Price\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\site-packages\\PIL\\XVThumbImagePlugin.py',
+   'PYMODULE'),
+  ('PIL.XbmImagePlugin',
+   'C:\\Users\\Jesse '
+   'Price\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\site-packages\\PIL\\XbmImagePlugin.py',
+   'PYMODULE'),
+  ('PIL.XpmImagePlugin',
+   'C:\\Users\\Jesse '
+   'Price\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\site-packages\\PIL\\XpmImagePlugin.py',
+   'PYMODULE'),
+  ('PIL._binary',
+   'C:\\Users\\Jesse '
+   'Price\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\site-packages\\PIL\\_binary.py',
+   'PYMODULE'),
+  ('PIL._deprecate',
+   'C:\\Users\\Jesse '
+   'Price\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\site-packages\\PIL\\_deprecate.py',
+   'PYMODULE'),
+  ('PIL._typing',
+   'C:\\Users\\Jesse '
+   'Price\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\site-packages\\PIL\\_typing.py',
+   'PYMODULE'),
+  ('PIL._util',
+   'C:\\Users\\Jesse '
+   'Price\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\site-packages\\PIL\\_util.py',
+   'PYMODULE'),
+  ('PIL._version',
+   'C:\\Users\\Jesse '
+   'Price\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\site-packages\\PIL\\_version.py',
+   'PYMODULE'),
+  ('PIL.features',
+   'C:\\Users\\Jesse '
+   'Price\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\site-packages\\PIL\\features.py',
+   'PYMODULE'),
+  ('__future__',
+   'C:\\Users\\Jesse '
+   'Price\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\__future__.py',
+   'PYMODULE'),
+  ('_aix_support',
+   'C:\\Users\\Jesse '
+   'Price\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\_aix_support.py',
+   'PYMODULE'),
+  ('_ast_unparse',
+   'C:\\Users\\Jesse '
+   'Price\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\_ast_unparse.py',
+   'PYMODULE'),
+  ('_colorize',
+   'C:\\Users\\Jesse '
+   'Price\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\_colorize.py',
+   'PYMODULE'),
+  ('_compat_pickle',
+   'C:\\Users\\Jesse '
+   'Price\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\_compat_pickle.py',
+   'PYMODULE'),
+  ('_opcode_metadata',
+   'C:\\Users\\Jesse '
+   'Price\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\_opcode_metadata.py',
+   'PYMODULE'),
+  ('_py_abc',
+   'C:\\Users\\Jesse '
+   'Price\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\_py_abc.py',
+   'PYMODULE'),
+  ('_py_warnings',
+   'C:\\Users\\Jesse '
+   'Price\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\_py_warnings.py',
+   'PYMODULE'),
+  ('_pydatetime',
+   'C:\\Users\\Jesse '
+   'Price\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\_pydatetime.py',
+   'PYMODULE'),
+  ('_pydecimal',
+   'C:\\Users\\Jesse '
+   'Price\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\_pydecimal.py',
+   'PYMODULE'),
+  ('_strptime',
+   'C:\\Users\\Jesse '
+   'Price\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\_strptime.py',
+   'PYMODULE'),
+  ('_threading_local',
+   'C:\\Users\\Jesse '
+   'Price\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\_threading_local.py',
+   'PYMODULE'),
+  ('annotationlib',
+   'C:\\Users\\Jesse '
+   'Price\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\annotationlib.py',
+   'PYMODULE'),
+  ('argparse',
+   'C:\\Users\\Jesse '
+   'Price\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\argparse.py',
+   'PYMODULE'),
+  ('ast',
+   'C:\\Users\\Jesse '
+   'Price\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\ast.py',
+   'PYMODULE'),
+  ('base64',
+   'C:\\Users\\Jesse '
+   'Price\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\base64.py',
+   'PYMODULE'),
+  ('bisect',
+   'C:\\Users\\Jesse '
+   'Price\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\bisect.py',
+   'PYMODULE'),
+  ('bz2',
+   'C:\\Users\\Jesse '
+   'Price\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\bz2.py',
+   'PYMODULE'),
+  ('calendar',
+   'C:\\Users\\Jesse '
+   'Price\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\calendar.py',
+   'PYMODULE'),
+  ('codeop',
+   'C:\\Users\\Jesse '
+   'Price\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\codeop.py',
+   'PYMODULE'),
+  ('colorsys',
+   'C:\\Users\\Jesse '
+   'Price\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\colorsys.py',
+   'PYMODULE'),
+  ('compression',
+   'C:\\Users\\Jesse '
+   'Price\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\compression\\__init__.py',
+   'PYMODULE'),
+  ('compression._common',
+   'C:\\Users\\Jesse '
+   'Price\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\compression\\_common\\__init__.py',
+   'PYMODULE'),
+  ('compression._common._streams',
+   'C:\\Users\\Jesse '
+   'Price\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\compression\\_common\\_streams.py',
+   'PYMODULE'),
+  ('compression.zstd',
+   'C:\\Users\\Jesse '
+   'Price\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\compression\\zstd\\__init__.py',
+   'PYMODULE'),
+  ('compression.zstd._zstdfile',
+   'C:\\Users\\Jesse '
+   'Price\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\compression\\zstd\\_zstdfile.py',
+   'PYMODULE'),
+  ('contextlib',
+   'C:\\Users\\Jesse '
+   'Price\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\contextlib.py',
+   'PYMODULE'),
+  ('contextvars',
+   'C:\\Users\\Jesse '
+   'Price\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\contextvars.py',
+   'PYMODULE'),
+  ('copy',
+   'C:\\Users\\Jesse '
+   'Price\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\copy.py',
+   'PYMODULE'),
+  ('csv',
+   'C:\\Users\\Jesse '
+   'Price\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\csv.py',
+   'PYMODULE'),
+  ('ctypes',
+   'C:\\Users\\Jesse '
+   'Price\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\ctypes\\__init__.py',
+   'PYMODULE'),
+  ('ctypes._endian',
+   'C:\\Users\\Jesse '
+   'Price\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\ctypes\\_endian.py',
+   'PYMODULE'),
+  ('ctypes._layout',
+   'C:\\Users\\Jesse '
+   'Price\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\ctypes\\_layout.py',
+   'PYMODULE'),
+  ('dataclasses',
+   'C:\\Users\\Jesse '
+   'Price\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\dataclasses.py',
+   'PYMODULE'),
+  ('datetime',
+   'C:\\Users\\Jesse '
+   'Price\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\datetime.py',
+   'PYMODULE'),
+  ('decimal',
+   'C:\\Users\\Jesse '
+   'Price\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\decimal.py',
+   'PYMODULE'),
+  ('difflib',
+   'C:\\Users\\Jesse '
+   'Price\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\difflib.py',
+   'PYMODULE'),
+  ('dis',
+   'C:\\Users\\Jesse '
+   'Price\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\dis.py',
+   'PYMODULE'),
+  ('email',
+   'C:\\Users\\Jesse '
+   'Price\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\email\\__init__.py',
+   'PYMODULE'),
+  ('email._encoded_words',
+   'C:\\Users\\Jesse '
+   'Price\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\email\\_encoded_words.py',
+   'PYMODULE'),
+  ('email._header_value_parser',
+   'C:\\Users\\Jesse '
+   'Price\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\email\\_header_value_parser.py',
+   'PYMODULE'),
+  ('email._parseaddr',
+   'C:\\Users\\Jesse '
+   'Price\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\email\\_parseaddr.py',
+   'PYMODULE'),
+  ('email._policybase',
+   'C:\\Users\\Jesse '
+   'Price\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\email\\_policybase.py',
+   'PYMODULE'),
+  ('email.base64mime',
+   'C:\\Users\\Jesse '
+   'Price\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\email\\base64mime.py',
+   'PYMODULE'),
+  ('email.charset',
+   'C:\\Users\\Jesse '
+   'Price\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\email\\charset.py',
+   'PYMODULE'),
+  ('email.contentmanager',
+   'C:\\Users\\Jesse '
+   'Price\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\email\\contentmanager.py',
+   'PYMODULE'),
+  ('email.encoders',
+   'C:\\Users\\Jesse '
+   'Price\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\email\\encoders.py',
+   'PYMODULE'),
+  ('email.errors',
+   'C:\\Users\\Jesse '
+   'Price\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\email\\errors.py',
+   'PYMODULE'),
+  ('email.feedparser',
+   'C:\\Users\\Jesse '
+   'Price\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\email\\feedparser.py',
+   'PYMODULE'),
+  ('email.generator',
+   'C:\\Users\\Jesse '
+   'Price\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\email\\generator.py',
+   'PYMODULE'),
+  ('email.header',
+   'C:\\Users\\Jesse '
+   'Price\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\email\\header.py',
+   'PYMODULE'),
+  ('email.headerregistry',
+   'C:\\Users\\Jesse '
+   'Price\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\email\\headerregistry.py',
+   'PYMODULE'),
+  ('email.iterators',
+   'C:\\Users\\Jesse '
+   'Price\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\email\\iterators.py',
+   'PYMODULE'),
+  ('email.message',
+   'C:\\Users\\Jesse '
+   'Price\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\email\\message.py',
+   'PYMODULE'),
+  ('email.parser',
+   'C:\\Users\\Jesse '
+   'Price\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\email\\parser.py',
+   'PYMODULE'),
+  ('email.policy',
+   'C:\\Users\\Jesse '
+   'Price\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\email\\policy.py',
+   'PYMODULE'),
+  ('email.quoprimime',
+   'C:\\Users\\Jesse '
+   'Price\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\email\\quoprimime.py',
+   'PYMODULE'),
+  ('email.utils',
+   'C:\\Users\\Jesse '
+   'Price\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\email\\utils.py',
+   'PYMODULE'),
+  ('fnmatch',
+   'C:\\Users\\Jesse '
+   'Price\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\fnmatch.py',
+   'PYMODULE'),
+  ('fractions',
+   'C:\\Users\\Jesse '
+   'Price\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\fractions.py',
+   'PYMODULE'),
+  ('ftplib',
+   'C:\\Users\\Jesse '
+   'Price\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\ftplib.py',
+   'PYMODULE'),
+  ('getopt',
+   'C:\\Users\\Jesse '
+   'Price\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\getopt.py',
+   'PYMODULE'),
+  ('gettext',
+   'C:\\Users\\Jesse '
+   'Price\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\gettext.py',
+   'PYMODULE'),
+  ('glob',
+   'C:\\Users\\Jesse '
+   'Price\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\glob.py',
+   'PYMODULE'),
+  ('gzip',
+   'C:\\Users\\Jesse '
+   'Price\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\gzip.py',
+   'PYMODULE'),
+  ('hashlib',
+   'C:\\Users\\Jesse '
+   'Price\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\hashlib.py',
+   'PYMODULE'),
+  ('http',
+   'C:\\Users\\Jesse '
+   'Price\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\http\\__init__.py',
+   'PYMODULE'),
+  ('http.client',
+   'C:\\Users\\Jesse '
+   'Price\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\http\\client.py',
+   'PYMODULE'),
+  ('http.cookiejar',
+   'C:\\Users\\Jesse '
+   'Price\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\http\\cookiejar.py',
+   'PYMODULE'),
+  ('importlib',
+   'C:\\Users\\Jesse '
+   'Price\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\importlib\\__init__.py',
+   'PYMODULE'),
+  ('importlib._abc',
+   'C:\\Users\\Jesse '
+   'Price\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\importlib\\_abc.py',
+   'PYMODULE'),
+  ('importlib._bootstrap',
+   'C:\\Users\\Jesse '
+   'Price\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\importlib\\_bootstrap.py',
+   'PYMODULE'),
+  ('importlib._bootstrap_external',
+   'C:\\Users\\Jesse '
+   'Price\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\importlib\\_bootstrap_external.py',
+   'PYMODULE'),
+  ('importlib.abc',
+   'C:\\Users\\Jesse '
+   'Price\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\importlib\\abc.py',
+   'PYMODULE'),
+  ('importlib.machinery',
+   'C:\\Users\\Jesse '
+   'Price\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\importlib\\machinery.py',
+   'PYMODULE'),
+  ('importlib.metadata',
+   'C:\\Users\\Jesse '
+   'Price\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\importlib\\metadata\\__init__.py',
+   'PYMODULE'),
+  ('importlib.metadata._adapters',
+   'C:\\Users\\Jesse '
+   'Price\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\importlib\\metadata\\_adapters.py',
+   'PYMODULE'),
+  ('importlib.metadata._collections',
+   'C:\\Users\\Jesse '
+   'Price\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\importlib\\metadata\\_collections.py',
+   'PYMODULE'),
+  ('importlib.metadata._functools',
+   'C:\\Users\\Jesse '
+   'Price\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\importlib\\metadata\\_functools.py',
+   'PYMODULE'),
+  ('importlib.metadata._itertools',
+   'C:\\Users\\Jesse '
+   'Price\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\importlib\\metadata\\_itertools.py',
+   'PYMODULE'),
+  ('importlib.metadata._meta',
+   'C:\\Users\\Jesse '
+   'Price\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\importlib\\metadata\\_meta.py',
+   'PYMODULE'),
+  ('importlib.metadata._text',
+   'C:\\Users\\Jesse '
+   'Price\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\importlib\\metadata\\_text.py',
+   'PYMODULE'),
+  ('importlib.readers',
+   'C:\\Users\\Jesse '
+   'Price\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\importlib\\readers.py',
+   'PYMODULE'),
+  ('importlib.resources',
+   'C:\\Users\\Jesse '
+   'Price\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\importlib\\resources\\__init__.py',
+   'PYMODULE'),
+  ('importlib.resources._adapters',
+   'C:\\Users\\Jesse '
+   'Price\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\importlib\\resources\\_adapters.py',
+   'PYMODULE'),
+  ('importlib.resources._common',
+   'C:\\Users\\Jesse '
+   'Price\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\importlib\\resources\\_common.py',
+   'PYMODULE'),
+  ('importlib.resources._functional',
+   'C:\\Users\\Jesse '
+   'Price\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\importlib\\resources\\_functional.py',
+   'PYMODULE'),
+  ('importlib.resources._itertools',
+   'C:\\Users\\Jesse '
+   'Price\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\importlib\\resources\\_itertools.py',
+   'PYMODULE'),
+  ('importlib.resources.abc',
+   'C:\\Users\\Jesse '
+   'Price\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\importlib\\resources\\abc.py',
+   'PYMODULE'),
+  ('importlib.resources.readers',
+   'C:\\Users\\Jesse '
+   'Price\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\importlib\\resources\\readers.py',
+   'PYMODULE'),
+  ('importlib.util',
+   'C:\\Users\\Jesse '
+   'Price\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\importlib\\util.py',
+   'PYMODULE'),
+  ('inspect',
+   'C:\\Users\\Jesse '
+   'Price\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\inspect.py',
+   'PYMODULE'),
+  ('ipaddress',
+   'C:\\Users\\Jesse '
+   'Price\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\ipaddress.py',
+   'PYMODULE'),
+  ('json',
+   'C:\\Users\\Jesse '
+   'Price\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\json\\__init__.py',
+   'PYMODULE'),
+  ('json.decoder',
+   'C:\\Users\\Jesse '
+   'Price\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\json\\decoder.py',
+   'PYMODULE'),
+  ('json.encoder',
+   'C:\\Users\\Jesse '
+   'Price\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\json\\encoder.py',
+   'PYMODULE'),
+  ('json.scanner',
+   'C:\\Users\\Jesse '
+   'Price\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\json\\scanner.py',
+   'PYMODULE'),
+  ('logging',
+   'C:\\Users\\Jesse '
+   'Price\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\logging\\__init__.py',
+   'PYMODULE'),
+  ('lzma',
+   'C:\\Users\\Jesse '
+   'Price\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\lzma.py',
+   'PYMODULE'),
+  ('mimetypes',
+   'C:\\Users\\Jesse '
+   'Price\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\mimetypes.py',
+   'PYMODULE'),
+  ('netrc',
+   'C:\\Users\\Jesse '
+   'Price\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\netrc.py',
+   'PYMODULE'),
+  ('numbers',
+   'C:\\Users\\Jesse '
+   'Price\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\numbers.py',
+   'PYMODULE'),
+  ('opcode',
+   'C:\\Users\\Jesse '
+   'Price\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\opcode.py',
+   'PYMODULE'),
+  ('pathlib',
+   'C:\\Users\\Jesse '
+   'Price\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\pathlib\\__init__.py',
+   'PYMODULE'),
+  ('pathlib._os',
+   'C:\\Users\\Jesse '
+   'Price\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\pathlib\\_os.py',
+   'PYMODULE'),
+  ('pickle',
+   'C:\\Users\\Jesse '
+   'Price\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\pickle.py',
+   'PYMODULE'),
+  ('pprint',
+   'C:\\Users\\Jesse '
+   'Price\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\pprint.py',
+   'PYMODULE'),
+  ('py_compile',
+   'C:\\Users\\Jesse '
+   'Price\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\py_compile.py',
+   'PYMODULE'),
+  ('quopri',
+   'C:\\Users\\Jesse '
+   'Price\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\quopri.py',
+   'PYMODULE'),
+  ('random',
+   'C:\\Users\\Jesse '
+   'Price\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\random.py',
+   'PYMODULE'),
+  ('selectors',
+   'C:\\Users\\Jesse '
+   'Price\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\selectors.py',
+   'PYMODULE'),
+  ('shlex',
+   'C:\\Users\\Jesse '
+   'Price\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\shlex.py',
+   'PYMODULE'),
+  ('shutil',
+   'C:\\Users\\Jesse '
+   'Price\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\shutil.py',
+   'PYMODULE'),
+  ('signal',
+   'C:\\Users\\Jesse '
+   'Price\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\signal.py',
+   'PYMODULE'),
+  ('socket',
+   'C:\\Users\\Jesse '
+   'Price\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\socket.py',
+   'PYMODULE'),
+  ('ssl',
+   'C:\\Users\\Jesse '
+   'Price\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\ssl.py',
+   'PYMODULE'),
+  ('statistics',
+   'C:\\Users\\Jesse '
+   'Price\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\statistics.py',
+   'PYMODULE'),
+  ('string',
+   'C:\\Users\\Jesse '
+   'Price\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\string\\__init__.py',
+   'PYMODULE'),
+  ('stringprep',
+   'C:\\Users\\Jesse '
+   'Price\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\stringprep.py',
+   'PYMODULE'),
+  ('subprocess',
+   'C:\\Users\\Jesse '
+   'Price\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\subprocess.py',
+   'PYMODULE'),
+  ('svgwrite',
+   'C:\\Users\\Jesse '
+   'Price\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\site-packages\\svgwrite\\__init__.py',
+   'PYMODULE'),
+  ('svgwrite.animate',
+   'C:\\Users\\Jesse '
+   'Price\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\site-packages\\svgwrite\\animate.py',
+   'PYMODULE'),
+  ('svgwrite.base',
+   'C:\\Users\\Jesse '
+   'Price\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\site-packages\\svgwrite\\base.py',
+   'PYMODULE'),
+  ('svgwrite.container',
+   'C:\\Users\\Jesse '
+   'Price\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\site-packages\\svgwrite\\container.py',
+   'PYMODULE'),
+  ('svgwrite.data',
+   'C:\\Users\\Jesse '
+   'Price\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\site-packages\\svgwrite\\data\\__init__.py',
+   'PYMODULE'),
+  ('svgwrite.data.colors',
+   'C:\\Users\\Jesse '
+   'Price\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\site-packages\\svgwrite\\data\\colors.py',
+   'PYMODULE'),
+  ('svgwrite.data.full11',
+   'C:\\Users\\Jesse '
+   'Price\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\site-packages\\svgwrite\\data\\full11.py',
+   'PYMODULE'),
+  ('svgwrite.data.pattern',
+   'C:\\Users\\Jesse '
+   'Price\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\site-packages\\svgwrite\\data\\pattern.py',
+   'PYMODULE'),
+  ('svgwrite.data.svgparser',
+   'C:\\Users\\Jesse '
+   'Price\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\site-packages\\svgwrite\\data\\svgparser.py',
+   'PYMODULE'),
+  ('svgwrite.data.tiny12',
+   'C:\\Users\\Jesse '
+   'Price\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\site-packages\\svgwrite\\data\\tiny12.py',
+   'PYMODULE'),
+  ('svgwrite.data.typechecker',
+   'C:\\Users\\Jesse '
+   'Price\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\site-packages\\svgwrite\\data\\typechecker.py',
+   'PYMODULE'),
+  ('svgwrite.data.types',
+   'C:\\Users\\Jesse '
+   'Price\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\site-packages\\svgwrite\\data\\types.py',
+   'PYMODULE'),
+  ('svgwrite.drawing',
+   'C:\\Users\\Jesse '
+   'Price\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\site-packages\\svgwrite\\drawing.py',
+   'PYMODULE'),
+  ('svgwrite.elementfactory',
+   'C:\\Users\\Jesse '
+   'Price\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\site-packages\\svgwrite\\elementfactory.py',
+   'PYMODULE'),
+  ('svgwrite.etree',
+   'C:\\Users\\Jesse '
+   'Price\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\site-packages\\svgwrite\\etree.py',
+   'PYMODULE'),
+  ('svgwrite.filters',
+   'C:\\Users\\Jesse '
+   'Price\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\site-packages\\svgwrite\\filters.py',
+   'PYMODULE'),
+  ('svgwrite.gradients',
+   'C:\\Users\\Jesse '
+   'Price\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\site-packages\\svgwrite\\gradients.py',
+   'PYMODULE'),
+  ('svgwrite.image',
+   'C:\\Users\\Jesse '
+   'Price\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\site-packages\\svgwrite\\image.py',
+   'PYMODULE'),
+  ('svgwrite.masking',
+   'C:\\Users\\Jesse '
+   'Price\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\site-packages\\svgwrite\\masking.py',
+   'PYMODULE'),
+  ('svgwrite.mixins',
+   'C:\\Users\\Jesse '
+   'Price\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\site-packages\\svgwrite\\mixins.py',
+   'PYMODULE'),
+  ('svgwrite.params',
+   'C:\\Users\\Jesse '
+   'Price\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\site-packages\\svgwrite\\params.py',
+   'PYMODULE'),
+  ('svgwrite.path',
+   'C:\\Users\\Jesse '
+   'Price\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\site-packages\\svgwrite\\path.py',
+   'PYMODULE'),
+  ('svgwrite.pattern',
+   'C:\\Users\\Jesse '
+   'Price\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\site-packages\\svgwrite\\pattern.py',
+   'PYMODULE'),
+  ('svgwrite.shapes',
+   'C:\\Users\\Jesse '
+   'Price\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\site-packages\\svgwrite\\shapes.py',
+   'PYMODULE'),
+  ('svgwrite.solidcolor',
+   'C:\\Users\\Jesse '
+   'Price\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\site-packages\\svgwrite\\solidcolor.py',
+   'PYMODULE'),
+  ('svgwrite.text',
+   'C:\\Users\\Jesse '
+   'Price\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\site-packages\\svgwrite\\text.py',
+   'PYMODULE'),
+  ('svgwrite.utils',
+   'C:\\Users\\Jesse '
+   'Price\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\site-packages\\svgwrite\\utils.py',
+   'PYMODULE'),
+  ('svgwrite.validator2',
+   'C:\\Users\\Jesse '
+   'Price\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\site-packages\\svgwrite\\validator2.py',
+   'PYMODULE'),
+  ('svgwrite.version',
+   'C:\\Users\\Jesse '
+   'Price\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\site-packages\\svgwrite\\version.py',
+   'PYMODULE'),
+  ('sysconfig',
+   'C:\\Users\\Jesse '
+   'Price\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\sysconfig\\__init__.py',
+   'PYMODULE'),
+  ('tarfile',
+   'C:\\Users\\Jesse '
+   'Price\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\tarfile.py',
+   'PYMODULE'),
+  ('tempfile',
+   'C:\\Users\\Jesse '
+   'Price\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\tempfile.py',
+   'PYMODULE'),
+  ('textwrap',
+   'C:\\Users\\Jesse '
+   'Price\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\textwrap.py',
+   'PYMODULE'),
+  ('threading',
+   'C:\\Users\\Jesse '
+   'Price\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\threading.py',
+   'PYMODULE'),
+  ('tkinter',
+   'C:\\Users\\Jesse '
+   'Price\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\tkinter\\__init__.py',
+   'PYMODULE'),
+  ('tkinter.commondialog',
+   'C:\\Users\\Jesse '
+   'Price\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\tkinter\\commondialog.py',
+   'PYMODULE'),
+  ('tkinter.constants',
+   'C:\\Users\\Jesse '
+   'Price\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\tkinter\\constants.py',
+   'PYMODULE'),
+  ('tkinter.dialog',
+   'C:\\Users\\Jesse '
+   'Price\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\tkinter\\dialog.py',
+   'PYMODULE'),
+  ('tkinter.filedialog',
+   'C:\\Users\\Jesse '
+   'Price\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\tkinter\\filedialog.py',
+   'PYMODULE'),
+  ('tkinter.messagebox',
+   'C:\\Users\\Jesse '
+   'Price\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\tkinter\\messagebox.py',
+   'PYMODULE'),
+  ('tkinter.simpledialog',
+   'C:\\Users\\Jesse '
+   'Price\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\tkinter\\simpledialog.py',
+   'PYMODULE'),
+  ('tkinter.ttk',
+   'C:\\Users\\Jesse '
+   'Price\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\tkinter\\ttk.py',
+   'PYMODULE'),
+  ('token',
+   'C:\\Users\\Jesse '
+   'Price\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\token.py',
+   'PYMODULE'),
+  ('tokenize',
+   'C:\\Users\\Jesse '
+   'Price\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\tokenize.py',
+   'PYMODULE'),
+  ('tracemalloc',
+   'C:\\Users\\Jesse '
+   'Price\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\tracemalloc.py',
+   'PYMODULE'),
+  ('typing',
+   'C:\\Users\\Jesse '
+   'Price\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\typing.py',
+   'PYMODULE'),
+  ('urllib',
+   'C:\\Users\\Jesse '
+   'Price\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\urllib\\__init__.py',
+   'PYMODULE'),
+  ('urllib.error',
+   'C:\\Users\\Jesse '
+   'Price\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\urllib\\error.py',
+   'PYMODULE'),
+  ('urllib.parse',
+   'C:\\Users\\Jesse '
+   'Price\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\urllib\\parse.py',
+   'PYMODULE'),
+  ('urllib.request',
+   'C:\\Users\\Jesse '
+   'Price\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\urllib\\request.py',
+   'PYMODULE'),
+  ('urllib.response',
+   'C:\\Users\\Jesse '
+   'Price\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\urllib\\response.py',
+   'PYMODULE'),
+  ('xml',
+   'C:\\Users\\Jesse '
+   'Price\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\xml\\__init__.py',
+   'PYMODULE'),
+  ('xml.dom',
+   'C:\\Users\\Jesse '
+   'Price\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\xml\\dom\\__init__.py',
+   'PYMODULE'),
+  ('xml.dom.NodeFilter',
+   'C:\\Users\\Jesse '
+   'Price\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\xml\\dom\\NodeFilter.py',
+   'PYMODULE'),
+  ('xml.dom.domreg',
+   'C:\\Users\\Jesse '
+   'Price\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\xml\\dom\\domreg.py',
+   'PYMODULE'),
+  ('xml.dom.expatbuilder',
+   'C:\\Users\\Jesse '
+   'Price\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\xml\\dom\\expatbuilder.py',
+   'PYMODULE'),
+  ('xml.dom.minicompat',
+   'C:\\Users\\Jesse '
+   'Price\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\xml\\dom\\minicompat.py',
+   'PYMODULE'),
+  ('xml.dom.minidom',
+   'C:\\Users\\Jesse '
+   'Price\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\xml\\dom\\minidom.py',
+   'PYMODULE'),
+  ('xml.dom.pulldom',
+   'C:\\Users\\Jesse '
+   'Price\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\xml\\dom\\pulldom.py',
+   'PYMODULE'),
+  ('xml.dom.xmlbuilder',
+   'C:\\Users\\Jesse '
+   'Price\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\xml\\dom\\xmlbuilder.py',
+   'PYMODULE'),
+  ('xml.etree',
+   'C:\\Users\\Jesse '
+   'Price\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\xml\\etree\\__init__.py',
+   'PYMODULE'),
+  ('xml.etree.ElementInclude',
+   'C:\\Users\\Jesse '
+   'Price\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\xml\\etree\\ElementInclude.py',
+   'PYMODULE'),
+  ('xml.etree.ElementPath',
+   'C:\\Users\\Jesse '
+   'Price\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\xml\\etree\\ElementPath.py',
+   'PYMODULE'),
+  ('xml.etree.ElementTree',
+   'C:\\Users\\Jesse '
+   'Price\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\xml\\etree\\ElementTree.py',
+   'PYMODULE'),
+  ('xml.etree.cElementTree',
+   'C:\\Users\\Jesse '
+   'Price\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\xml\\etree\\cElementTree.py',
+   'PYMODULE'),
+  ('xml.parsers',
+   'C:\\Users\\Jesse '
+   'Price\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\xml\\parsers\\__init__.py',
+   'PYMODULE'),
+  ('xml.parsers.expat',
+   'C:\\Users\\Jesse '
+   'Price\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\xml\\parsers\\expat.py',
+   'PYMODULE'),
+  ('xml.sax',
+   'C:\\Users\\Jesse '
+   'Price\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\xml\\sax\\__init__.py',
+   'PYMODULE'),
+  ('xml.sax._exceptions',
+   'C:\\Users\\Jesse '
+   'Price\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\xml\\sax\\_exceptions.py',
+   'PYMODULE'),
+  ('xml.sax.expatreader',
+   'C:\\Users\\Jesse '
+   'Price\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\xml\\sax\\expatreader.py',
+   'PYMODULE'),
+  ('xml.sax.handler',
+   'C:\\Users\\Jesse '
+   'Price\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\xml\\sax\\handler.py',
+   'PYMODULE'),
+  ('xml.sax.saxutils',
+   'C:\\Users\\Jesse '
+   'Price\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\xml\\sax\\saxutils.py',
+   'PYMODULE'),
+  ('xml.sax.xmlreader',
+   'C:\\Users\\Jesse '
+   'Price\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\xml\\sax\\xmlreader.py',
+   'PYMODULE'),
+  ('zipfile',
+   'C:\\Users\\Jesse '
+   'Price\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\zipfile\\__init__.py',
+   'PYMODULE'),
+  ('zipfile._path',
+   'C:\\Users\\Jesse '
+   'Price\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\zipfile\\_path\\__init__.py',
+   'PYMODULE'),
+  ('zipfile._path.glob',
+   'C:\\Users\\Jesse '
+   'Price\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\zipfile\\_path\\glob.py',
+   'PYMODULE')])

@@ -23,8 +23,6 @@ except ImportError:
 # Settings
 # -----------------------------
 
-SCALE = 10
-MARGIN = 10
 OUTPUT_DIR = Path("Output")
 
 TAG_FORMATS = {
@@ -55,38 +53,6 @@ def safe_filename(text: str) -> str:
     return cleaned[:128]
 
 
-
-def generate_datamatrix_image(data: str) -> Image.Image:
-    """Generate a PIL image containing a Data Matrix barcode."""
-
-    barcode = zxingcpp.create_barcode(
-        data,
-        zxingcpp.BarcodeFormat.DataMatrix,
-        force_square=True,
-    )
-
-    image = Image.fromarray(
-        barcode.to_image(scale=SCALE, add_quiet_zones=False)
-    ).convert("L")
-
-    if MARGIN:
-        margin_px = MARGIN * SCALE
-
-        bordered = Image.new(
-            "L",
-            (
-                image.width + (2 * margin_px),
-                image.height + (2 * margin_px),
-            ),
-            color=255,
-        )
-
-        bordered.paste(image, (margin_px, margin_px))
-        image = bordered
-
-    return image
-
-
 # -----------------------------
 # GUI App
 # -----------------------------
@@ -111,8 +77,22 @@ class DataMatrixApp:
         frame = ttk.Frame(self.root, padding=15)
         frame.pack(fill="both", expand=True)
 
+        # Format Selection Dropdown
+        ttk.Label(frame, text="Tag Format", font=("Segoe UI", 14, "bold")).pack(anchor="w")
+        self.format_var = tk.StringVar()
+        self.format_combo = ttk.Combobox(
+            frame,
+            textvariable=self.format_var,
+            values=list(TAG_FORMATS.keys()),
+            state="readonly",
+            font=("Segoe UI", 14)
+        )
+        self.format_combo.pack(fill="x", pady=(5, 15))
+        self.format_combo.current(0) # Set initial selection
+        self.format_combo.bind("<<ComboboxSelected>>", self._on_format_selected)
+
         # Input Fields
-        for label_text in ["MFR", "SER", "PNR", "REV"]:
+        for label_text in ["Plain Text", "MFR", "SER", "PNR", "REV"]:
             ttk.Label(frame, text=label_text, font=("Segoe UI", 12, "bold")).pack(anchor="w")
             
             entry = tk.Entry(
@@ -131,20 +111,6 @@ class DataMatrixApp:
             entry.pack(fill="x", pady=(2, 10))
             entry.bind("<KeyRelease>", self.update_preview)
             self.fields[label_text] = entry
-
-        # Format Selection Dropdown
-        ttk.Label(frame, text="Tag Format", font=("Segoe UI", 14, "bold")).pack(anchor="w", pady=(10, 0))
-        self.format_var = tk.StringVar()
-        self.format_combo = ttk.Combobox(
-            frame,
-            textvariable=self.format_var,
-            values=list(TAG_FORMATS.keys()),
-            state="readonly",
-            font=("Segoe UI", 14)
-        )
-        self.format_combo.pack(fill="x", pady=(5, 15))
-        self.format_combo.current(0) # Set initial selection
-        self.format_combo.bind("<<ComboboxSelected>>", self._on_format_selected)
 
         # Buttons
         button_style = ttk.Style()
@@ -205,6 +171,11 @@ class DataMatrixApp:
         """Sets or clears field defaults based on the selected format."""
         mfr_entry = self.fields["MFR"]
         pnr_entry = self.fields["PNR"]
+        plain_entry = self.fields["Plain Text"]
+
+        # Clear override field whenever format changes to prevent accidental data mismatch
+        plain_entry.delete(0, tk.END)
+
         current_mfr = mfr_entry.get().strip()
         current_pnr = pnr_entry.get().strip()
         selected_format = self.format_var.get()
@@ -233,6 +204,11 @@ class DataMatrixApp:
                 pnr_entry.delete(0, tk.END)
 
     def get_text(self) -> str:
+        # Check for plain text override first
+        plain_text = self.fields["Plain Text"].get().strip()
+        if plain_text:
+            return plain_text
+
         parts = []
         mfr = self.fields["MFR"].get().strip()
         ser = self.fields["SER"].get().strip()

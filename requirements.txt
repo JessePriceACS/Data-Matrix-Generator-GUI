@@ -1,0 +1,4 @@
+Pillow
+zxing-cpp
+svgwrite
+pyinstaller
