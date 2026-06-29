@@ -94,12 +94,17 @@ class DataMatrixApp:
         self.format_combo.current(0) # Set initial selection
         self.format_combo.bind("<<ComboboxSelected>>", self._on_format_selected)
 
+        # Fields Container Frame
+        self.fields_container = ttk.Frame(frame)
+        self.fields_container.pack(fill="x", pady=(0, 10))
+
+        self.field_widgets = {}
         # Input Fields
         for label_text in ["Plain Text", "MFR", "SER", "PNR", "REV"]:
-            ttk.Label(frame, text=label_text, font=("Segoe UI", 12, "bold")).pack(anchor="w")
+            lbl = ttk.Label(self.fields_container, text=label_text, font=("Segoe UI", 12, "bold"))
             
             entry = tk.Entry(
-                frame,
+                self.fields_container,
                 font=("Segoe UI", 14),
                 bg="#2b2b2b",
                 fg="#f0f0f0",
@@ -111,9 +116,9 @@ class DataMatrixApp:
                 borderwidth=0,
             )
 
-            entry.pack(fill="x", pady=(2, 10))
             entry.bind("<KeyRelease>", self.update_preview)
             self.fields[label_text] = entry
+            self.field_widgets[label_text] = (lbl, entry)
 
         # Buttons
         button_style = ttk.Style()
@@ -163,11 +168,13 @@ class DataMatrixApp:
 
         # Run initial preview for default values
         self._update_field_defaults() # Set defaults based on initial format
+        self._update_field_visibility()
         self.update_preview()
 
     def _on_format_selected(self, event=None):
         """Handle format selection change."""
         self._update_field_defaults()
+        self._update_field_visibility()
         self.update_preview()
 
     def _update_field_defaults(self):
@@ -278,10 +285,35 @@ class DataMatrixApp:
             if current_pnr in ("AA00063", "AA00062", "AA00031", "AA00050", "AA00047", "AA00019", "AA00014"):
                 pnr_entry.delete(0, tk.END)
 
+    def _update_field_visibility(self):
+        """Update fields visibility based on selected format."""
+        selected_format = self.format_var.get()
+        is_barcode_only = (selected_format == "Barcode Only")
+
+        for label_text in ["Plain Text", "MFR", "SER", "PNR", "REV"]:
+            lbl, entry = self.field_widgets[label_text]
+            lbl.pack_forget()
+            entry.pack_forget()
+
+            show = False
+            if is_barcode_only:
+                if label_text == "Plain Text":
+                    show = True
+            else:
+                if label_text != "Plain Text":
+                    show = True
+
+            if show:
+                lbl.pack(anchor="w")
+                entry.pack(fill="x", pady=(2, 10))
+
     def get_text(self) -> str:
-        # Check for plain text override first
-        plain_text = self.fields["Plain Text"].get().strip()
-        if plain_text:
+        selected_format = self.format_var.get()
+        is_barcode_only = (selected_format == "Barcode Only")
+
+        if is_barcode_only:
+            # Check for plain text override first
+            plain_text = self.fields["Plain Text"].get().strip()
             return plain_text
 
         parts = []
