@@ -28,9 +28,12 @@ OUTPUT_DIR = Path("Output")
 TAG_FORMATS = {
     "Barcode Only": {"width_mm": 25, "height_mm": 25, "dpi": 300},
     "AL00003 - Turret ASM AA00063": {"width_mm": 103, "height_mm": 35, "dpi": 300},
-    "1.5\" x 0.5\" (300 DPI)": {"width_mm": 38.1, "height_mm": 12.7, "dpi": 300},
-    "2.0\" x 1.0\" (300 DPI)": {"width_mm": 50.8, "height_mm": 25.4, "dpi": 300},
-    "3.0\" x 1.0\" (300 DPI)": {"width_mm": 76.2, "height_mm": 25.4, "dpi": 300},
+    "AL00004 - Pitch Motor Assembly AA00062": {"width_mm": 120, "height_mm": 32, "dpi": 300},
+    "AL00005 - Cradle Assembly AA00031": {"width_mm": 120, "height_mm": 32, "dpi": 300},
+    "AL00006 - Base Motor Assembly AA00050": {"width_mm": 120, "height_mm": 32, "dpi": 300},
+    "AL00007 - Base Signal Box AA00047": {"width_mm": 120, "height_mm": 32, "dpi": 300},
+    "AL00008 - Camera Damper AA00019": {"width_mm": 75, "height_mm": 17, "dpi": 300},
+    "AL00009 - Electronics Enclosure AA00014": {"width_mm": 104, "height_mm": 29, "dpi": 300},
 }
 
 
@@ -192,6 +195,78 @@ class DataMatrixApp:
             pnr_entry.delete(0, tk.END)
             pnr_entry.insert(0, "AA00063")
             pnr_entry.config(state="readonly", fg="#aaaaaa")
+        elif selected_format == "AL00004 - Pitch Motor Assembly AA00062":
+            # MFR: Force 9G8G8 and lock
+            mfr_entry.config(state="normal", fg="#f0f0f0")
+            mfr_entry.delete(0, tk.END)
+            mfr_entry.insert(0, "9G8G8")
+            mfr_entry.config(state="readonly", fg="#aaaaaa")
+
+            # PNR: Force AA00062 and lock
+            pnr_entry.config(state="normal", fg="#f0f0f0")
+            pnr_entry.delete(0, tk.END)
+            pnr_entry.insert(0, "AA00062")
+            pnr_entry.config(state="readonly", fg="#aaaaaa")
+        elif selected_format == "AL00005 - Cradle Assembly AA00031":
+            # MFR: Force 9G8G8 and lock
+            mfr_entry.config(state="normal", fg="#f0f0f0")
+            mfr_entry.delete(0, tk.END)
+            mfr_entry.insert(0, "9G8G8")
+            mfr_entry.config(state="readonly", fg="#aaaaaa")
+
+            # PNR: Force AA00031 and lock
+            pnr_entry.config(state="normal", fg="#f0f0f0")
+            pnr_entry.delete(0, tk.END)
+            pnr_entry.insert(0, "AA00031")
+            pnr_entry.config(state="readonly", fg="#aaaaaa")
+        elif selected_format == "AL00006 - Base Motor Assembly AA00050":
+            # MFR: Force 9G8G8 and lock
+            mfr_entry.config(state="normal", fg="#f0f0f0")
+            mfr_entry.delete(0, tk.END)
+            mfr_entry.insert(0, "9G8G8")
+            mfr_entry.config(state="readonly", fg="#aaaaaa")
+
+            # PNR: Force AA00050 and lock
+            pnr_entry.config(state="normal", fg="#f0f0f0")
+            pnr_entry.delete(0, tk.END)
+            pnr_entry.insert(0, "AA00050")
+            pnr_entry.config(state="readonly", fg="#aaaaaa")
+        elif selected_format == "AL00007 - Base Signal Box AA00047":
+            # MFR: Force 9G8G8 and lock
+            mfr_entry.config(state="normal", fg="#f0f0f0")
+            mfr_entry.delete(0, tk.END)
+            mfr_entry.insert(0, "9G8G8")
+            mfr_entry.config(state="readonly", fg="#aaaaaa")
+
+            # PNR: Force AA00047 and lock
+            pnr_entry.config(state="normal", fg="#f0f0f0")
+            pnr_entry.delete(0, tk.END)
+            pnr_entry.insert(0, "AA00047")
+            pnr_entry.config(state="readonly", fg="#aaaaaa")
+        elif selected_format == "AL00008 - Camera Damper AA00019":
+            # MFR: Force 9G8G8 and lock
+            mfr_entry.config(state="normal", fg="#f0f0f0")
+            mfr_entry.delete(0, tk.END)
+            mfr_entry.insert(0, "9G8G8")
+            mfr_entry.config(state="readonly", fg="#aaaaaa")
+
+            # PNR: Force AA00019 and lock
+            pnr_entry.config(state="normal", fg="#f0f0f0")
+            pnr_entry.delete(0, tk.END)
+            pnr_entry.insert(0, "AA00019")
+            pnr_entry.config(state="readonly", fg="#aaaaaa")
+        elif selected_format == "AL00009 - Electronics Enclosure AA00014":
+            # MFR: Force 9G8G8 and lock
+            mfr_entry.config(state="normal", fg="#f0f0f0")
+            mfr_entry.delete(0, tk.END)
+            mfr_entry.insert(0, "9G8G8")
+            mfr_entry.config(state="readonly", fg="#aaaaaa")
+
+            # PNR: Force AA00014 and lock
+            pnr_entry.config(state="normal", fg="#f0f0f0")
+            pnr_entry.delete(0, tk.END)
+            pnr_entry.insert(0, "AA00014")
+            pnr_entry.config(state="readonly", fg="#aaaaaa")
         else:
             # Reset MFR if it matches the default
             mfr_entry.config(state="normal", fg="#f0f0f0")
@@ -200,7 +275,7 @@ class DataMatrixApp:
             
             # Reset PNR if it matches the default
             pnr_entry.config(state="normal", fg="#f0f0f0")
-            if current_pnr == "AA00063":
+            if current_pnr in ("AA00063", "AA00062", "AA00031", "AA00050", "AA00047", "AA00019", "AA00014"):
                 pnr_entry.delete(0, tk.END)
 
     def get_text(self) -> str:
@@ -261,23 +336,64 @@ class DataMatrixApp:
         aspect = barcode_img.width / barcode_img.height
         barcode_img = barcode_img.resize((int(available_h * aspect), available_h), Image.LANCZOS)
             
-        if "AL00003" in fmt_name:
-            # AL00003 Layout: Text on Left, Barcode specifically positioned on Right
-            # Resize barcode to 16mm x 16mm
-            bc_size_px = int((16 / 25.4) * dpi)
+        if "AL000" in fmt_name:
+            # Custom Layout: Text on Left, Barcode specifically positioned on Right
+            if "AL00008" in fmt_name:
+                bc_size_mm = 13
+                bc_top_mm = 2
+                bc_right_mm = 2
+                f_size_pt = 12
+                leading_pt = 14
+                off_x_mm = 2.0
+                off_y_mm = 1.5
+                tracking_mm = 0.2
+            elif "AL00009" in fmt_name:
+                bc_size_mm = 20
+                bc_top_mm = 4
+                bc_right_mm = 4
+                f_size_pt = 16
+                leading_pt = 24
+                off_x_mm = 4.0
+                off_y_mm = 3.0
+                tracking_mm = 0.2
+            elif "AL00003" in fmt_name:
+                bc_size_mm = 16
+                bc_top_mm = 4
+                bc_right_mm = 4
+                f_size_pt = 24
+                leading_pt = 30
+                off_x_mm = 4.0
+                off_y_mm = 2.8
+                tracking_mm = 0.6
+            else:
+                bc_size_mm = 20
+                bc_top_mm = 4
+                bc_right_mm = 4
+                f_size_pt = 20
+                leading_pt = 26
+                off_x_mm = 4.0
+                off_y_mm = 3.0
+                tracking_mm = 0.2
+
+            bc_size_px = int((bc_size_mm / 25.4) * dpi)
             barcode_img = barcode_img.resize((bc_size_px, bc_size_px), Image.LANCZOS)
 
-            # Position: 83mm right, 4mm down
-            barcode_x = int((83 / 25.4) * dpi)
-            barcode_y = int((4 / 25.4) * dpi)
+            # Position: relative to right and top edges
+            barcode_x = int(((fmt["width_mm"] - bc_size_mm - bc_right_mm) / 25.4) * dpi)
+            barcode_y = int((bc_top_mm / 25.4) * dpi)
             base.paste(barcode_img, (barcode_x, barcode_y))
 
-            # Offsets converted to pixels (x=4mm, y=2.8mm)
-            off_x = int((4 / 25.4) * dpi)
-            off_y = int((2.8 / 25.4) * dpi)
-            f_size = int((24 / 72) * dpi)      # 24pt
-            leading = int((30 / 72) * dpi)     # 30pt
-            tracking_px = int((0.6 / 25.4) * dpi) # 0.6mm tracking
+            # Offsets converted to pixels (x=off_x_mm, y=off_y_mm)
+            off_x = int((off_x_mm / 25.4) * dpi)
+            off_y = int((off_y_mm / 25.4) * dpi)
+            f_size = int((f_size_pt / 72) * dpi)
+            leading = int((leading_pt / 72) * dpi)
+            tracking_px = int((tracking_mm / 25.4) * dpi)
+
+            off_y = int((off_y_mm / 25.4) * dpi)
+            f_size = int((f_size_pt / 72) * dpi)
+            leading = int((leading_pt / 72) * dpi)
+            tracking_px = int((tracking_mm / 25.4) * dpi)
 
             try:
                 font = ImageFont.truetype("arialbd.ttf", size=f_size)
@@ -421,7 +537,7 @@ class DataMatrixApp:
             # Background (White)
             dwg.add(dwg.rect(insert=(0, 0), size=('100%', '100%'), fill='white'))
             
-            if "AL00003" in fmt_name:
+            if "AL000" in fmt_name:
                 # Add 0.25mm tag perimeter border with 2mm corner radius
                 # Offset by 0.125mm (half stroke) to keep the line inside the tag edge
                 dwg.add(dwg.rect(insert=(0.125, 0.125), 
@@ -436,10 +552,46 @@ class DataMatrixApp:
             m_size = matrix_img.width
             padding = 2.5  # 2.5mm padding
             
-            if "AL00003" in fmt_name:
-                target_h = 16  # 16mm barcode size
-                barcode_x = 83 # 83mm from left
-                barcode_y = 4  # 4mm from top
+            if "AL000" in fmt_name:
+                if "AL00008" in fmt_name:
+                    target_h = 13
+                    bc_top_mm = 2
+                    bc_right_mm = 2
+                    ty = 1.5
+                    tx = 2.0
+                    f_size_pt = 12
+                    leading_pt = 14
+                    tracking_mm = 0.2
+                elif "AL00009" in fmt_name:
+                    target_h = 20
+                    bc_top_mm = 4
+                    bc_right_mm = 4
+                    ty = 3.0
+                    tx = 4.0
+                    f_size_pt = 16
+                    leading_pt = 24
+                    tracking_mm = 0.2
+                elif "AL00003" in fmt_name:
+                    target_h = 16
+                    bc_top_mm = 4
+                    bc_right_mm = 4
+                    ty = 2.8
+                    tx = 4.0
+                    f_size_pt = 24
+                    leading_pt = 30
+                    tracking_mm = 0.6
+                else:
+                    target_h = 20
+                    bc_top_mm = 4
+                    bc_right_mm = 4
+                    ty = 3.0
+                    tx = 4.0
+                    f_size_pt = 20
+                    leading_pt = 26
+                    tracking_mm = 0.2
+
+                barcode_x = width_mm - target_h - bc_right_mm
+                barcode_y = bc_top_mm
             elif "Barcode Only" in fmt_name:
                 target_h = height_mm * 0.8
                 barcode_x = (width_mm - target_h) / 2
@@ -471,12 +623,10 @@ class DataMatrixApp:
                             fill='white'
                         ))
 
-            if "AL00003" in fmt_name:
-                # Custom AL00003 Text Layout (All Left)
-                tx, ty = 4, 2.8 # x=4mm, y=2.8mm (moved up by 1.2mm)
-                fs_mm = (24 / 72) * 25.4 # 24pt in mm
-                ld_mm = (30 / 72) * 25.4 # 30pt in mm
-                tracking_mm = 0.6 # 0.6mm tracking
+            if "AL000" in fmt_name:
+                # Custom Text Layout (All Left)
+                fs_mm = (f_size_pt / 72) * 25.4 # font size in mm
+                ld_mm = (leading_pt / 72) * 25.4 # leading in mm
 
                 mfr = self.fields["MFR"].get().strip()
                 ser = self.fields["SER"].get().strip()
